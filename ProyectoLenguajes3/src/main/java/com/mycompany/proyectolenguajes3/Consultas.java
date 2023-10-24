@@ -31,10 +31,10 @@ public class Consultas {
         Query query = new Query(prologQuery);
 
         if (query.hasSolution()){
-                System.out.println(X + "se cuida algo");
+                System.out.println(X + " se cuida algo");
         }
         else{
-                System.out.println(X + "no se cuida nada");
+                System.out.println(X + " no se cuida nada");
         }
     }
 
@@ -152,5 +152,112 @@ public class Consultas {
                 System.out.println(X + " no tiene riesgo maximo de morir de covid");
         }
     }
+     public void cuarentena_despues_contacto(String X){
+        String prologQuery = "cuarentena_despues_contacto("+ X +").";
+        Query query = new Query(prologQuery);
 
+        if (query.hasSolution()){
+                System.out.println(X + " tiene que estar en cuarentena");
+        }
+        else{
+                System.out.println(X + " no tiene que estar en cuarentena");
+        }
+    }
+
+     public void vacunas_minimas_para_viajar(String X){
+        String prologQuery = "vacunas_minimas_para_viajar("+ X +").";
+        Query query = new Query(prologQuery);
+
+        if (query.hasSolution()){
+                System.out.println(X + " cumple con las vacunas minimas para viajar");
+        }
+        else{
+                System.out.println(X + " no cumple con las vacunas minimas para viajar");
+        }
+    }
+
+    public void noSeRecomiendaViajar(String X){
+        String prologQuery = "noSeRecomiendaViajar('"+ X +"').";
+        Query query = new Query(prologQuery);
+
+        if (query.hasSolution()){
+                System.out.println("No se recomienda viajar a "+ X);
+        }
+        else{
+                System.out.println("Se puede viajar a " + X);
+        }
+    } 
+    
+    public void enviar_a_especialista(String X){
+        String prologQuery = "enviar_a_especialista("+ X +").";
+        Query query = new Query(prologQuery);
+
+        if (query.hasSolution()){
+                System.out.println(X+" se debe enviar con un especialista");
+        } 
+        else{
+                System.out.println( X+" no se debe enviar con un especialista");
+        }
+    }
+    public void realizar_pcr(String X){
+        String prologQuery = "realizar_pcr("+ X +").";
+        Query query = new Query(prologQuery);
+
+        if (query.hasSolution()){
+                System.out.println(X+" tiene que realizarse una pcr");
+        } 
+        else{
+                System.out.println( X+" no tiene que realizarse una pcr");
+        }
+    }
+
+       public void cuarentena_despues_de_viaje(String X){
+        String prologQuery = "cuarentena_despues_de_viaje("+ X +").";
+        Query query = new Query(prologQuery);
+
+        if (query.hasSolution()){
+                System.out.println(X+" Tiene que realizar cuarentena ");
+        } 
+        else{
+                System.out.println( X+" no tiene que realizar cuarentena");
+        }
+    }
+       public void tieneFiebre(String X){
+        String prologQuery = "tieneFiebre("+ X +").";
+        Query query = new Query(prologQuery);
+
+        if (query.hasSolution()){
+                System.out.println(X+" tiene fiebre");
+        } 
+        else{
+                System.out.println( X+" no tiene fiebre");
+        }
+    }
+
+    public void perdida_de_sentidos(String X){
+        String prologQuery = "perdida_de_sentidos("+ X +").";
+        Query query = new Query(prologQuery);
+
+        if (query.hasSolution()){
+                System.out.println(X+" tiene perdida de sentidos");
+        } 
+        else{
+                System.out.println( X+" no tiene perdida de sentidos");
+        }
+    }
+
+    public void completamente_vacunado(String X){
+
+        String prologQuery = "completamente_vacunado("+ X +",Y).";
+        Query query = new Query(prologQuery);
+       if (query.hasSolution()){
+                Map<String, Term> binding = query.nextSolution();
+                Term y = (Term) binding.get("Y");
+                System.out.println("Lista de vacunas pendientes " + y);
+
+        }
+        else{
+                System.out.println(X + " no esta vacunado ");
+        }
+    }
 }
